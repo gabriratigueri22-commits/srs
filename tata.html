@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CPF - Limpa Nome 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #E80170;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Container principal */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Imagem do topo */
+        .top-image {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            margin-bottom: 0px;
+            background-color: #fff;
+        }
+
+        /* Bloco de informações */
+        .info-box {
+            background-color: #fff;
+            color: #000;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid #E80170;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .info-box .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .info-box .subtitle {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Campo de CPF */
+        .cpf-field {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .cpf-field label {
+            display: block;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .cpf-field input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .cpf-field input:focus {
+            outline: none;
+            border-color: #E80170;
+        }
+
+        .cpf-field input.error {
+            border-color: #ff0000;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Botão */
+        .search-button {
+            display: inline-block;
+            background-color: #E80170;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #b90054;
+        }
+
+        .search-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Botão de "Consultar Agora" */
+        .consult-button {
+            display: inline-block;
+            background-color: #fff;
+            color: #E80170;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border: 2px solid #E80170;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .consult-button:hover {
+            background-color: #E80170;
+            color: #fff;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .faq-section h2 {
+            text-align: left;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-item h3 {
+            background-color: #fff;
+            padding: 10px 0;
+            cursor: pointer;
+            margin: 0;
+            border-bottom: 1px solid #E80170;
+            color: #000;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item h3:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-item h3::after {
+            content: '▼';
+            font-size: 16px;
+            color: #000;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item h3.open::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            background-color: #fff;
+            padding: 10px 0;
+            display: none;
+            color: #000;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            text-align: left;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Footer */
+        .footer {
+            font-size: 12px;
+            color: #fff;
+            margin-top: 80px;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            line-height: 1.5;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .info-box {
+                padding: 12px;
+            }
+            
+            .info-box .title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Imagens do topo -->
+        <img src="https://s3.typebot.io/public/workspaces/cm9xld7to001qiicfjjfjjeda/typebots/cmasktrqy0010j4ges2d9s1l4/blocks/r7stzmy0lln2qhhsmxc6h22l?v=1747841212830" alt="Imagem de destaque" class="top-image">
+        <img src="https://s3.typebot.io/public/workspaces/cm9xld7to001qiicfjjfjjeda/typebots/cmasktrqy0010j4ges2d9s1l4/blocks/s2kk9bstb9l4n553no469v4e?v=1747841038826" alt="Descrição da imagem" class="top-image">
+
+        <!-- Bloco de informações com fundo branco -->
+        <div class="info-box">
+            <p class="title">Serasa Limpa Nome 2025: Confira as condições e propostas disponíveis no seu CPF</p>
+            <p class="subtitle">Em ritmo de carnaval. Aproveite para negociar dívidas com até 99% de desconto.</p>
+
+            <!-- Campo de CPF -->
+            <div class="cpf-field">
+                <label for="cpf">Digite seu CPF:</label>
+                <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+                <div class="error-message" id="cpf-error"></div>
+            </div>
+
+            <!-- Botão de busca -->
+            <button class="search-button" onclick="buscarPropostas()">Buscar propostas</button>
+        </div>
+
+        <!-- Imagem adicional -->
+        <div style="margin: 40px 0; text-align: center;">
+            <img src="https://s3.typebot.io/public/workspaces/cm9xld7to001qiicfjjfjjeda/typebots/cmasktrqy0010j4ges2d9s1l4/blocks/ckotsj0s4mza6g6x1jm77sqm?v=1747841418994" alt="Imagem Adicional" style="max-width: 100%; height: auto;">
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Tire suas dúvidas sobre o Limpa Nome</h2>
+            <div class="faq-item">
+                <h3 onclick="toggleFaq(0)">O que é o Limpa Nome?</h3>
+                <div class="faq-answer">
+                    <p>O Limpa Nome é um serviço oferecido para auxiliar pessoas a regularizarem suas dívidas e melhorarem seu score de crédito.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFaq(1)">Como funciona a negociação?</h3>
+                <div class="faq-answer">
+                    <p>Você insere seu CPF, verifica suas dívidas e acessa propostas exclusivas para quitar seus débitos com descontos.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFaq(2)">O serviço é confiável?</h3>
+                <div class="faq-answer">
+                    <p>Sim, o Limpa Nome é um serviço confiável e seguro, desenvolvido para oferecer as melhores condições de negociação com total transparência e proteção dos seus dados.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFaq(3)">O Feirão acontece presencialmente?</h3>
+                <div class="faq-answer">
+                    <p>Não, todo o processo é realizado online, permitindo que você negocie suas dívidas com conforto e segurança, diretamente de casa.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 onclick="toggleFaq(4)">Quais são as formas de pagamento aceitas?</h3>
+                <div class="faq-answer">
+                    <p>O pagamento é feito via Pix, pois é rápido e seguro. Assim, o processo de regularização é automático.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão Consultar Agora -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <button class="consult-button" onclick="consultarAgora()">Consultar agora</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 Feirão Limpa Nome. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+    </div>
+
+    <script>
+        // Variável para controlar qual FAQ está aberto
+        let openFaqIndex = null;
+
+        // Função para aplicar máscara do CPF
+        function applyCpfMask(value) {
+            const numbers = value.replace(/\D/g, '');
+            if (numbers.length <= 11) {
+                return numbers
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d{1,2})/, '$1-$2');
+            }
+            return value;
+        }
+
+        // Função para validar CPF
+        function validateCpf(cpf) {
+            const numbers = cpf.replace(/\D/g, '');
+
+            if (numbers.length !== 11) {
+                return false;
+            }
+
+            // Verifica se todos os dígitos são iguais
+            if (/^(\d)\1{10}$/.test(numbers)) {
+                return false;
+            }
+
+            // Validação do primeiro dígito verificador
+            let sum = 0;
+            for (let i = 0; i < 9; i++) {
+                sum += parseInt(numbers[i]) * (10 - i);
+            }
+            let remainder = sum % 11;
+            const digit1 = remainder < 2 ? 0 : 11 - remainder;
+
+            if (parseInt(numbers[9]) !== digit1) {
+                return false;
+            }
+
+            // Validação do segundo dígito verificador
+            sum = 0;
+            for (let i = 0; i < 10; i++) {
+                sum += parseInt(numbers[i]) * (11 - i);
+            }
+            remainder = sum % 11;
+            const digit2 = remainder < 2 ? 0 : 11 - remainder;
+
+            return parseInt(numbers[10]) === digit2;
+        }
+
+        // Função para mostrar erro
+        function showError(message) {
+            const errorElement = document.getElementById('cpf-error');
+            const cpfInput = document.getElementById('cpf');
+            
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+            cpfInput.classList.add('error');
+        }
+
+        // Função para limpar erro
+        function clearError() {
+            const errorElement = document.getElementById('cpf-error');
+            const cpfInput = document.getElementById('cpf');
+            
+            errorElement.classList.remove('show');
+            cpfInput.classList.remove('error');
+        }
+
+        // Função principal para buscar propostas
+        function buscarPropostas() {
+            const cpfInput = document.getElementById('cpf');
+            const cpf = cpfInput.value.trim();
+
+            clearError();
+
+            if (!cpf) {
+                showError('Por favor, digite seu CPF');
+                return;
+            }
+
+            if (!validateCpf(cpf)) {
+                showError('CPF inválido. Verifique os números digitados.');
+                return;
+            }
+
+            // CPF válido - aqui você coloca o link para a próxima página
+            const cpfNumbers = cpf.replace(/\D/g, '');
+            
+            // TODO: SUBSTITUA A LINHA ABAIXO PELO SEU LINK
+            // Exemplo: window.location.href = '/proxima-pagina?cpf=' + cpfNumbers;
+            window.location.href = '../aproveite/chat.html?cpf=' + cpfNumbers;
+        }
+
+        // Função para consultar agora (mesmo comportamento)
+        function consultarAgora() {
+            buscarPropostas();
+        }
+
+        // Função para toggle do FAQ
+        function toggleFaq(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const currentItem = faqItems[index];
+            const currentAnswer = currentItem.querySelector('.faq-answer');
+            const currentQuestion = currentItem.querySelector('h3');
+
+            // Se o mesmo item está sendo clicado, fecha
+            if (openFaqIndex === index) {
+                currentAnswer.classList.remove('show');
+                currentQuestion.classList.remove('open');
+                openFaqIndex = null;
+                return;
+            }
+
+            // Fecha o item anteriormente aberto
+            if (openFaqIndex !== null) {
+                const previousItem = faqItems[openFaqIndex];
+                const previousAnswer = previousItem.querySelector('.faq-answer');
+                const previousQuestion = previousItem.querySelector('h3');
+                
+                previousAnswer.classList.remove('show');
+                previousQuestion.classList.remove('open');
+            }
+
+            // Abre o novo item
+            currentAnswer.classList.add('show');
+            currentQuestion.classList.add('open');
+            openFaqIndex = index;
+        }
+
+        // Event listener para aplicar máscara enquanto digita
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            const maskedValue = applyCpfMask(e.target.value);
+            e.target.value = maskedValue;
+            clearError();
+        });
+
+        // Event listener para Enter no campo CPF
+        document.getElementById('cpf').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                buscarPropostas();
+            }
+        });
+    </script>
+</body>
+</html>
