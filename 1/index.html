@@ -2,249 +2,493 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Consulta CPF – Final de Ano</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serasa Limpa Nome 2026 - Negocie suas Dívidas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD0MLPXHBY"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WD0MLPXHBY');
-    </script>
-
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ujzyrn7h9e");
-</script>
+<script type="text/javascript"> (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "ujzyrn7h9e"); </script>
     
     <style>
-        /* Estilos gerais */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #E80170;
-            color: #fff;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            padding: 40px 20px; /* Aumentado para compensar a falta de imagem no topo */
             box-sizing: border-box;
         }
-
-        /* Bloco de informações */
-        .info-box {
-            background-color: #fff;
-            color: #000;
-            padding: 25px;
-            border-radius: 20px;
-            border: 2px solid #E80170;
-            margin-bottom: 20px;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #D91F5A 0%, #E91E63 50%, #F06292 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-
-        .info-box .title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 15px;
-            line-height: 1.2;
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
         }
-
-        .info-box .subtitle {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 25px;
-            line-height: 1.4;
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #E91E63 0%, #F06292 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        /* Botões */
-        .search-button {
-            display: inline-block;
-            background-color: #E80170;
-            color: #fff;
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #D91F5A 0%, #E91E63 100%);
+            color: white;
+            padding: 18px 48px;
+            border-radius: 12px;
+            font-weight: 600;
             font-size: 18px;
-            font-weight: bold;
-            padding: 15px;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(217, 31, 90, 0.4);
         }
-
-        .search-button:hover {
-            background-color: #b90054;
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(217, 31, 90, 0.6);
         }
-
-        .consult-button {
-            display: inline-block;
-            background-color: #fff;
-            color: #E80170;
+        
+        .btn-secondary {
+            background: white;
+            color: #D91F5A;
+            padding: 18px 48px;
+            border-radius: 12px;
+            font-weight: 600;
             font-size: 18px;
-            font-weight: bold;
-            padding: 15px;
-            border: 2px solid #E80170;
-            border-radius: 8px;
+            border: 2px solid #e2e8f0;
             cursor: pointer;
-            width: 100%;
-            margin-bottom: 20px;
             transition: all 0.3s ease;
         }
-
-        .consult-button:hover {
-            background-color: #E80170;
-            color: #fff;
+        
+        .btn-secondary:hover {
+            border-color: #D91F5A;
+            color: #D91F5A;
         }
-
-        /* FAQ Section */
-        .faq-section {
-            background-color: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            width: 100%;
-            box-sizing: border-box;
+        
+        .accordion-item {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
-
-        .faq-section h2 {
-            text-align: left;
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 15px;
+        
+        .accordion-item:hover {
+            border-color: #D91F5A;
+            box-shadow: 0 4px 12px rgba(217, 31, 90, 0.1);
         }
-
-        .faq-item {
-            margin-bottom: 10px;
-        }
-
-        .faq-item h3 {
-            padding: 12px 0;
+        
+        .accordion-header {
+            padding: 24px;
             cursor: pointer;
-            margin: 0;
-            border-bottom: 1px solid #f0f0f0;
-            color: #000;
-            font-size: 15px;
-            font-weight: 500;
-            text-align: left;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0f172a;
         }
-
-        .faq-item h3::after {
-            content: '▼';
-            font-size: 12px;
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
         }
-
-        .faq-answer {
-            padding: 10px 0;
-            display: none;
-            color: #444;
-            font-size: 14px;
-            text-align: left;
-            line-height: 1.5;
+        
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 0 24px 24px 24px;
         }
-
-        .footer {
-            font-size: 12px;
-            color: #fff;
-            margin-top: 40px;
-            padding-bottom: 30px;
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            font-size: 24px;
+            color: #E91E63;
+        }
+        
+        .accordion-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
             text-align: center;
-            opacity: 0.8;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            border-color: #E91E63;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #D91F5A 0%, #F06292 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #D91F5A 0%, #E91E63 100%);
+            border-radius: 20px;
+            padding: 32px;
+            color: white;
+            text-align: center;
         }
 
-        .footer a {
-            color: #fff;
-            text-decoration: underline;
+        .hero-image {
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .btn-primary, .btn-secondary {
+                padding: 16px 32px;
+                font-size: 16px;
+            }
+            
+            .accordion-header {
+                font-size: 16px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="info-box">
-            <p class="title">Serasa Limpa Nome 2026: Confira as condições e propostas disponíveis no seu CPF</p>
+    <!-- Header -->
+    <header class="py-6 px-4" style="background: linear-gradient(135deg, #D91F5A 0%, #E91E63 100%);">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button class="text-white font-semibold flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                    <path d="M3 4h14v2H3V4zm0 5h14v2H3V9zm0 5h14v2H3v-2z"/>
+                </svg>
+                Menu
+            </button>
             
-            <p class="subtitle">Em ritmo de começo de ano. Aproveite os últimos dias para negociar suas dividas com ate 99% de desconto</p>
-
-            <button class="search-button" onclick="buscarPropostas()">Buscar propostas</button>
+            <div class="flex items-center gap-4">
+                <img src="https://www.serasa.com.br/lno/static-webfiles/common/products/limpa-nome-white.svg" alt="Serasa Limpa Nome" class="h-8 md:h-10">
+            </div>
+            
+            <button class="text-white font-semibold flex items-center gap-2" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+                    <path d="M10 10a3 3 0 100-6 3 3 0 000 6zm0 1a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+                Entrar
+            </button>
         </div>
+    </header>
 
-        <div class="faq-section">
-            <h2>Tire suas dúvidas sobre o Limpa Nome</h2>
-            <div class="faq-item">
-                <h3>O que é o Limpa Nome?</h3>
-                <div class="faq-answer">
-                    <p>O Limpa Nome é um serviço oferecido para auxiliar pessoas a regularizarem suas dívidas e melhorarem seu score de crédito.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <h3>Como funciona a negociação?</h3>
-                <div class="faq-answer">
-                    <p>Você insere seu CPF, verifica suas dívidas e acessa propostas exclusivas para quitar seus débitos com descontos.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <h3>O serviço é confiável?</h3>
-                <div class="faq-answer">
-                    <p>Sim, o Limpa Nome é um serviço confiável e seguro, desenvolvido para oferecer as melhores condições de negociação com total transparência.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <h3>Quais são as formas de pagamento?</h3>
-                <div class="faq-answer">
-                    <p>O pagamento é feito via Pix, pois é rápido e seguro. Assim, o processo de regularização é automático.</p>
+    <!-- Hero Section -->
+    <section id="inicio" class="py-12 md:py-20 px-4" style="background: linear-gradient(135deg, #D91F5A 0%, #E91E63 100%);">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div>
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+                        Serasa Limpa Nome:<br>
+                        <span class="text-white">Negocie dívidas com até 90% de desconto</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+                        Encontre ofertas de forma rápida e segura, com opções de parcelamento que facilitam a negociação das suas dívidas e ajudam a limpar o seu nome
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary w-full sm:w-auto" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                            Consultar CPF grátis
+                        </button>
+                        <button class="btn-secondary w-full sm:w-auto" style="background: white; color: #D91F5A; border: none;" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                            Consultar Dívidas
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <button class="consult-button" onclick="consultarAgora()">Consultar agora</button>
-
-        <div class="footer">
-            <p>© 2026 Feirão Limpa Nome. Todos os direitos reservados.</p>
-            <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+    <!-- Promotional Section -->
+    <section class="py-12 md:py-20 px-4 bg-pink-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <div>
+                    <span class="inline-block px-4 py-2 bg-gradient-to-r from-pink-600 to-pink-500 text-white rounded-full text-sm font-semibold mb-6">
+                        Novidade
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                        Descontos de até 90% em dívidas da Sabesp e outras empresas até 31/01/2026
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Aproveite o parcelamento e descontos de até 90% para regularizar suas contas da Sabesp e outras empresas pelo Serasa Limpa Nome. As ofertas ficarão disponíveis até o fim de janeiro de 2026!
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Acesse grátis as ofertas disponíveis para você.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary w-full sm:w-auto" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                            Consultar Dívidas
+                        </button>
+                        <a href="#" class="text-pink-600 font-semibold hover:text-pink-700 inline-flex items-center gap-2 justify-center py-4">
+                            Saiba Mais
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0l8 8-8 8V0z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-12 md:py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">Por que negociar suas dívidas com a Serasa?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <div class="feature-card">
+                    <div class="feature-icon text-white">
+                        💰
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 text-slate-900">Ofertas exclusivas</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Negocie suas dívidas com até 90% de desconto e condições especiais.
+                    </p>
+                    <a href="#" class="text-pink-600 font-semibold hover:text-pink-700 inline-flex items-center gap-2">
+                        Saiba Mais
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0l8 8-8 8V0z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon text-white">
+                        🛡️
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 text-slate-900">Confiável e seguro</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Negocie em poucos minutos, com a segurança que só a Serasa pode oferecer.
+                    </p>
+                    <a href="#" class="text-pink-600 font-semibold hover:text-pink-700 inline-flex items-center gap-2">
+                        Saiba Mais
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0l8 8-8 8V0z"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon text-white">
+                        📋
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 text-slate-900">Gerencie seus acordos</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Emitir a 2ª Via e acompanhar os seus acordos é só com a Serasa.
+                    </p>
+                    <a href="#" class="text-pink-600 font-semibold hover:text-pink-700 inline-flex items-center gap-2">
+                        Saiba Mais
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0l8 8-8 8V0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="btn-primary" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                    Consultar Minhas Dívidas Agora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-12 md:py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                    São mais de 1.400 parceiros com ofertas exclusivas pra você
+                </h2>
+                <button class="btn-primary" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                    Ver todos os parceiros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-12 md:py-20 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
+                Tire suas dúvidas sobre o Limpa Nome
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Quais são as vantagens de negociar dívidas com a Serasa?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            Ao negociar pelo Serasa Limpa Nome, você tem acesso a ofertas exclusivas com descontos de até 90%, parcelas que cabem no seu bolso, processo 100% online e seguro, e acompanhamento do status do seu acordo.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Quais as vantagens do Feirão Serasa Limpa Nome?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            O Feirão oferece condições ainda mais especiais e temporárias, com descontos maiores e parcelas facilitadas para você aproveitar e negociar suas dívidas rapidamente.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Tenho um acordo de dívida e não recebi o boleto. O que faço?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            Você pode emitir a 2ª via do boleto diretamente no site ou app do Serasa Limpa Nome, na área de "Meus Acordos". É rápido e fácil!
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Como negociar dívida com a Serasa?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            Basta acessar o site ou app do Serasa, fazer login com seu CPF, visualizar suas dívidas disponíveis para negociação, escolher a melhor oferta e finalizar o acordo. Todo o processo é digital e seguro.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Quais as formas de pagamento das negociações de dívida?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            Você pode pagar via PIX. As formas de pagamento variam de acordo com cada credor e oferta disponível.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Quando meu nome fica limpo depois de negociar a dívida?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            Após a confirmação do pagamento, seu nome é limpo em até 5 dias úteis. Você pode acompanhar o status do acordo pelo app ou site do Serasa Limpa Nome. É rápido e fácil!
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Como negociar dívida afeta meu score?</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 leading-relaxed">
+                            Negociar e pagar suas dívidas tem impacto positivo no seu Score Serasa. Quanto mais você mantém seus pagamentos em dia, melhor fica sua pontuação de crédito.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="btn-primary" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                    Consultar CPF e Ver Dívidas
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 md:py-20 px-4 bg-gradient-to-r from-pink-600 to-pink-500">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Pronto para limpar seu nome?
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Consulte suas dívidas gratuitamente e negocie com até 90% de desconto
+            </p>
+            <button class="btn-secondary" style="background: white; color: #D91F5A; border: none;" onclick="window.location.href='https://accordoonline.online/aproveite/'">
+                Consultar Minhas Dívidas
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400 mb-4">
+                © 2026 Feirão Limpa Nome. Todos os direitos reservados.
+            </p>
+            <div class="flex justify-center gap-6 text-gray-400">
+                <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                <span>|</span>
+                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Navegação
-        function buscarPropostas() {
-            const currentParams = window.location.search;
-            window.location.href = '../aproveite' + currentParams;
-        }
-
-        function consultarAgora() {
-            const currentParams = window.location.search;
-            window.location.href = '../aproveite/' + currentParams;
-        }
-
-        // Lógica do FAQ
-        document.querySelectorAll('.faq-item h3').forEach((item) => {
-            item.addEventListener('click', () => {
-                const answer = item.nextElementSibling;
-                const isVisible = answer.style.display === 'block';
-                
-                // Fecha todos antes de abrir o clicado (opcional)
-                document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
-                
-                answer.style.display = isVisible ? 'none' : 'block';
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            document.querySelectorAll('.accordion-content').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.accordion-icon').classList.remove('active');
+                }
             });
-        });
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
